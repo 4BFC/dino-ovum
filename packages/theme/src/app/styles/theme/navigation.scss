@@ -1,0 +1,56 @@
+@use '../tokens/breakpoints' as breakpoints;
+
+.navbar__brand {
+  gap: 0.5rem;
+  margin-right: 0;
+}
+
+.navbar__logo {
+  height: 30px;
+  margin-right: 0;
+}
+
+.navbar__logo img {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+}
+
+.navbar__title {
+  font-family: var(--library-font-family-brand);
+  font-size: var(--library-font-size-brand);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: var(--library-line-height-brand);
+  padding-block: 0.125rem;
+}
+
+.navbar__toggle {
+  display: none;
+}
+
+@media (width >= breakpoints.$desktop) {
+  .theme-layout-navbar-left {
+    flex: 0 0 calc(var(--library-sidebar-width) - var(--ifm-navbar-padding-horizontal));
+  }
+}
+
+@media (width <= breakpoints.$tablet) {
+  .navbar__title {
+    font-size: var(--library-font-size-brand-compact);
+  }
+
+  .theme-layout-navbar-left {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .theme-layout-navbar-right {
+    flex: 0 0 auto;
+  }
+}
+
+[data-theme='light'] .breadcrumbs__item--active .breadcrumbs__link {
+  background: var(--ifm-color-primary);
+  color: var(--library-on-accent);
+}

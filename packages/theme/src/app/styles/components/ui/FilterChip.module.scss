@@ -1,0 +1,28 @@
+.chip {
+  min-height: 32px;
+  padding: 0.2rem 0.75rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ifm-font-color-base);
+  font: inherit;
+  font-size: 0.875rem;
+  line-height: var(--library-line-height-compact);
+  cursor: pointer;
+  touch-action: manipulation;
+
+  &:hover {
+    border-color: var(--ifm-color-primary);
+  }
+
+  &[aria-pressed='true'] {
+    border-color: var(--library-control-active-bg);
+    background: var(--library-control-active-bg);
+    color: var(--library-control-active-fg);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--ifm-color-primary);
+    outline-offset: 3px;
+  }
+}

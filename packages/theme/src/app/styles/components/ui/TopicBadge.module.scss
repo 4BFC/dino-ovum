@@ -1,0 +1,42 @@
+.badge {
+  max-width: 100%;
+  padding: 0.15rem 0.5rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--library-topic-bg);
+  color: var(--library-topic-fg);
+  font-size: 0.6875rem;
+  line-height: var(--library-line-height-compact);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.badge[data-tone='0'] {
+  --library-topic-bg: var(--library-badge-0-bg);
+  --library-topic-fg: var(--library-badge-0-fg);
+}
+
+.badge[data-tone='1'] {
+  --library-topic-bg: var(--library-badge-1-bg);
+  --library-topic-fg: var(--library-badge-1-fg);
+}
+
+.badge[data-tone='2'] {
+  --library-topic-bg: var(--library-badge-2-bg);
+  --library-topic-fg: var(--library-badge-2-fg);
+}
+
+.badge[data-tone='3'] {
+  --library-topic-bg: var(--library-badge-3-bg);
+  --library-topic-fg: var(--library-badge-3-fg);
+}
+
+.badge[data-tone='4'] {
+  --library-topic-bg: var(--library-badge-4-bg);
+  --library-topic-fg: var(--library-badge-4-fg);
+}
+
+.badge[data-tone='5'] {
+  --library-topic-bg: var(--library-badge-5-bg);
+  --library-topic-fg: var(--library-badge-5-fg);
+}

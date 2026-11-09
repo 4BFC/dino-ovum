@@ -1,0 +1,36 @@
+---
+title: Home
+description: A verification site for the Dino Ovum preset and theme packages.
+slug: /
+sidebar_position: 1
+hide_title: true
+hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
+created_at: 2026-11-09
+updated_at: 2026-11-10
+---
+
+import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import HomeHeading from '@theme/DinoOvum/HomeHeading';
+
+<div className="library-home">
+
+<HomeHeading />
+
+Shared packages for your own document site.
+
+Dino Ovum provides the common configuration and interface extracted from dino-nest.
+This site loads `@dino-ovum/preset` and its theme while keeping documents, images, and custom CSS locally.
+
+Try document search, language switching, light and dark themes, and the recent-updates page.
+
+<div className="library-home__actions">
+  <Link className="button button--outline button--secondary" to={useBaseUrl('/license')}>Unlicense <span aria-hidden="true">→</span></Link>
+  <a className="button button--outline button--secondary" href="https://github.com/4BFC/dino-ovum">View packages <span aria-hidden="true">↗</span></a>
+</div>
+
+<p className="library-home__guide">Source and setup instructions are in the <a href="https://github.com/4BFC/dino-ovum">Dino Ovum</a>.</p>
+
+</div>

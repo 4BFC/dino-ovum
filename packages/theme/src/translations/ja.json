@@ -1,0 +1,92 @@
+{
+  "docnest.language.label": {
+    "message": "言語を変更"
+  },
+  "docnest.breadcrumbs": {
+    "message": "パンくずリスト"
+  },
+  "docnest.navigation": {
+    "message": "ドキュメントナビゲーション"
+  },
+  "docnest.navigation.collapse": {
+    "message": "ナビゲーションを閉じる"
+  },
+  "docnest.navigation.expand": {
+    "message": "ナビゲーションを開く"
+  },
+  "docnest.theme.light": {
+    "message": "ライトモードに切り替え"
+  },
+  "docnest.theme.dark": {
+    "message": "ダークモードに切り替え"
+  },
+  "docnest.documents.in": {
+    "message": "{directory} の文書"
+  },
+  "docnest.all": {
+    "message": "すべて"
+  },
+  "docnest.documents.count": {
+    "message": "全 {total} 件中 {start}–{end}"
+  },
+  "docnest.documents.empty": {
+    "message": "文書がありません"
+  },
+  "docnest.documents.caption": {
+    "message": "{directory} のすべての文書"
+  },
+  "docnest.document": {
+    "message": "文書"
+  },
+  "docnest.category": {
+    "message": "カテゴリ"
+  },
+  "docnest.updated": {
+    "message": "更新"
+  },
+  "docnest.pagination": {
+    "message": "文書のページ"
+  },
+  "docnest.pagination.previous": {
+    "message": "前のページ"
+  },
+  "docnest.pagination.next": {
+    "message": "次のページ"
+  },
+  "docnest.pagination.page": {
+    "message": "{number} ページ"
+  },
+  "docnest.updates.title": {
+    "message": "最近の更新"
+  },
+  "docnest.updates.description": {
+    "message": "新規、更新された文書を日付とドキュメントスペースで探せます。"
+  },
+  "docnest.updates.range": {
+    "message": "期間"
+  },
+  "docnest.updates.days": {
+    "message": "過去 {days} 日間"
+  },
+  "docnest.updates.allTime": {
+    "message": "すべての期間"
+  },
+  "docnest.updates.spaces": {
+    "message": "ドキュメントスペース"
+  },
+  "docnest.updates.newOnly": {
+    "message": "新しい文書のみ"
+  },
+  "docnest.updates.summary": {
+    "message": "日付: {dates} 件、文書: {total} 件"
+  },
+  "docnest.updates.dayCount": {
+    "message": "、文書: {total} 件"
+  },
+  "docnest.new": {
+    "message": "新規"
+  },
+  "docnest.updates.empty": {
+    "message": "条件に一致する文書がありません。"
+  }
+}

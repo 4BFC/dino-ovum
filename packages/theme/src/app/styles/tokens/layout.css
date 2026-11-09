@@ -1,0 +1,20 @@
+:root {
+  --library-sidebar-width: 300px;
+  --library-content-gutter: clamp(1rem, 6vw, 6rem);
+  --library-content-padding-top: 1rem;
+  --library-content-padding-bottom: 2rem;
+  --library-content-height: calc(
+    var(--library-viewport-height) - var(--ifm-navbar-height) - var(--library-content-padding-top) -
+      var(--library-content-padding-bottom)
+  );
+  --doc-sidebar-width: var(--library-sidebar-width);
+  --library-motion-duration: 180ms;
+  --library-motion-easing: ease-out;
+  --library-viewport-height: 100vh;
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --library-viewport-height: 100dvh;
+  }
+}

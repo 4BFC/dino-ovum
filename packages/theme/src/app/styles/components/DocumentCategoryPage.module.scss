@@ -1,0 +1,50 @@
+@use '../tokens/breakpoints' as breakpoints;
+
+.library-category-page {
+  display: flex;
+  flex-direction: column;
+  height: var(--library-content-height);
+  min-height: 0;
+}
+
+.library-category-page__header {
+  flex-shrink: 0;
+}
+
+.library-category-page__header :global(.breadcrumbs) {
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.library-category-page__header h1 {
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.library-category-page__header p {
+  margin-bottom: 1rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+}
+
+@media (width <= breakpoints.$mobile) {
+  .library-category-page__header p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+}
+
+@media (height <= breakpoints.$short-viewport) {
+  .library-category-page__header p {
+    display: none;
+  }
+
+  .library-category-page__header h1 {
+    margin-bottom: 0.25rem;
+    font-size: 1.25rem;
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "version": "0.1.0",
+  "type": "module",
+  "license": "Unlicense",
+  "author": "4BFC",
+  "engines": {
+    "node": ">=24.22.1 <25"
+  },
+  "files": [
+    "src",
+    "LICENSE",
+    "NOTICE",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/4BFC/dino-ovum.git"
+  },
+  "name": "@dino-ovum/preset",
+  "description": "Shared Docusaurus configuration and plugins for Dino Ovum.",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./config": "./src/config.js",
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@dino-ovum/theme": "workspace:*",
+    "@docusaurus/preset-classic": "3.10.1",
+    "@docusaurus/plugin-pwa": "3.10.1",
+    "@docusaurus/theme-mermaid": "3.10.1",
+    "@easyops-cn/docusaurus-search-local": "^0.55.3",
+    "docusaurus-plugin-sass": "^0.2.7",
+    "sass": "^1.106.1",
+    "prism-react-renderer": "^2.3.0"
+  },
+  "peerDependencies": {
+    "@docusaurus/core": "3.10.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

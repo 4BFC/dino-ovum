@@ -38,45 +38,88 @@ Design and implementation documents are maintained in Korean in `docs/`.
 
 ## Specifications
 
-Dino Ovum's package structure and responsibilities:
+Dino Ovum 0.1.0 contains two packages:
 
 | Component | Package | Description |
 | --- | --- | --- |
-| ![Dino Ovum Preset](https://img.shields.io/badge/Dino_Ovum-preset-2e8555?style=flat-square) | `@dino-ovum/preset` | Shared site configuration, document and sidebar setup, search, PWA, navigation, and recent-update plugins |
+| ![Dino Ovum Preset](https://img.shields.io/badge/Dino_Ovum-preset-2e8555?style=flat-square) | `@dino-ovum/preset` | Shared site configuration, documents, sidebars, search, PWA, navigation, and recent updates |
 | ![Dino Ovum Theme](https://img.shields.io/badge/Dino_Ovum-theme-2e8555?style=flat-square) | `@dino-ovum/theme` | Shared UI, components, layouts, styles, fonts, and default UI translations |
+
+The packages target Docusaurus **3.10.1**, React **19**, and Node.js **>=24.22.1 <25**. This workspace uses pnpm **10.5.2**. The first version supports one document root.
 
 ## Install
 
-This repository currently contains documentation and project branding. Package extraction and publication are not complete, so package installation commands are not available yet.
+Run the development and verification site from this repository with Node.js and pnpm installed:
 
-See the [implementation plan](../../docs/implementation-plan.md) for the work stages and verification criteria.
+```sh
+git clone https://github.com/4BFC/dino-ovum.git
+cd dino-ovum
+nvm use
+pnpm install --frozen-lockfile
+pnpm start
+```
+
+`nvm use` selects the version in `.nvmrc`; skip it if that Node.js version is already active.
+
+The packages are implemented, but have **not been published to npm**. Create local distribution archives with:
+
+```sh
+pnpm pack:packages
+```
+
+The two `.tgz` files are written to `artifacts/`. Follow the [development guide](../../docs/development.md) to install them in another site before the registry release.
 
 ## Usage
 
-Use [dino-nest](https://github.com/4BFC/dino-nest) as the template for your own document site. Dino Ovum is the repository for developing and releasing its shared packages.
+Configure a site using the preset:
 
-The target relationship is:
+```js
+import {createDinoConfig} from '@dino-ovum/preset/config';
+
+export default createDinoConfig(
+  {
+    title: 'My documents',
+    url: 'https://example.com',
+    baseUrl: '/',
+    themeConfig: {navbar: {logo: {src: 'img/logo.svg'}}},
+  },
+  {
+    customCss: './src/css/custom.css',
+    updates: true,
+    pwa: false,
+  },
+);
+```
+
+Keep documents in `documents/`, images in `public/`, and site styles in `src/css/custom.css`. The preset loads the shared theme. Search is enabled by default; PWA and the recent-updates page are optional.
 
 ```text
-dino-nest
+user site (dino-nest after migration)
   → @dino-ovum/preset
       → @dino-ovum/theme
 ```
 
-Documents, logos, site settings, and custom CSS stay in the user project. Shared improvements reach the site through a package update, a build check, and redeployment.
+`website/` demonstrates this structure without local copies of the shared application or theme. Updating the packages brings shared improvements while preserving site files. The existing dino-nest repository has not been migrated as part of this implementation.
 
-The [architecture document](../../docs/architecture.md) explains repository boundaries and customization.
+See the [configuration guide](../../docs/configuration.md), [architecture](../../docs/architecture.md), and [migration guide](../../docs/migration.md).
 
 ## Features
 
-The package design covers:
+- Shared document setup, automatic sidebars, and local search.
+- Document navigation and an optional recent-updates page.
+- Shared layouts, styles, Pretendard fonts, and light/dark themes.
+- English, Korean, and Japanese UI with site translation overrides.
+- Optional PWA manifests and offline support, including subpath deployments.
+- Custom CSS and component wrappers that survive package upgrades.
 
-- Shared document, search, PWA, and sidebar configuration.
-- Navigation and recent-update data generation.
-- Shared layouts, components, styles, and fonts.
-- Default UI translations and user customization.
+```sh
+pnpm build             # Build all three locales
+pnpm serve             # Preview the production site
+pnpm check             # Lint, unit tests, and site build
+pnpm verify:packages   # Isolated archive installation and upgrade checks
+```
 
-The first implementation milestone is a verification site using the packaged artifacts. See the [implementation plan](../../docs/implementation-plan.md) for the current status.
+The [implementation plan](../../docs/implementation-plan.md) separates completed package work from npm publication and template migration.
 
 ## Maintainer
 
@@ -85,9 +128,9 @@ The first implementation milestone is a verification site using the packaged art
 ## Contributing
 
 Questions and bug reports are welcome in [GitHub Issues](https://github.com/4BFC/dino-ovum/issues).
-Read the [architecture](../../docs/architecture.md) and [implementation plan](../../docs/implementation-plan.md) before proposing package changes.
+Read the [development guide](../../docs/development.md) before changing the packages.
 
 ## License
 
 [Unlicense](../../LICENSE).
-Third-party assets and dependencies retain their own licenses and notices.
+[NOTICE](../../NOTICE) preserves the original MIT notice for code and examples from dino-nest. Third-party assets and dependencies retain their own licenses.

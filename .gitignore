@@ -1,0 +1,9 @@
+node_modules/
+**/build/
+**/.docusaurus*/
+artifacts/
+coverage/
+.DS_Store
+*.log
+.env
+.env.*

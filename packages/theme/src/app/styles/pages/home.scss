@@ -1,0 +1,92 @@
+@use '../tokens/breakpoints' as breakpoints;
+
+.library-home {
+  max-width: 48rem;
+  padding-block: clamp(2rem, 8vh, 6rem);
+}
+
+.library-home__heading {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+  margin-bottom: 1.25rem;
+}
+
+.library-home__logo {
+  flex-shrink: 0;
+  width: clamp(3rem, 6vw, 4.5rem);
+  height: auto;
+}
+
+.library-home__heading h1 {
+  margin: 0;
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.library-home__titleline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.75rem;
+}
+
+.library-home__version {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.library-home p {
+  max-width: 40rem;
+  color: var(--ifm-color-emphasis-800);
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+.library-home__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.library-home__actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  width: 14.5rem;
+  max-width: 100%;
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-400);
+}
+
+.library-home__actions a:hover {
+  background: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-font-color-base);
+}
+
+.library-home__guide {
+  margin-top: clamp(4rem, 8vh, 6rem);
+}
+
+.library-home__guide a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+@media (width <= breakpoints.$tablet) {
+  .library-home__actions a {
+    flex-grow: 1;
+  }
+}
+
+.library-home__actions a:focus-visible,
+.library-home__guide a:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 3px;
+}

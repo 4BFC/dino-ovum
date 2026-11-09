@@ -1,0 +1,70 @@
+@use '../../tokens/breakpoints' as breakpoints;
+
+.control {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ifm-navbar-link-color);
+  touch-action: manipulation;
+
+  &::before {
+    position: absolute;
+    z-index: -1;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    content: '';
+  }
+
+  &:hover::before {
+    background: var(--ifm-color-emphasis-200);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--ifm-color-primary);
+    outline-offset: -2px;
+  }
+}
+
+.sidebar-toggle {
+  margin-left: 0.5rem;
+
+  &::before {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.menu-link {
+  gap: 0.5rem;
+}
+
+.dark-icon {
+  display: none;
+}
+
+:global([data-theme='dark']) .light-icon {
+  display: none;
+}
+
+:global([data-theme='dark']) .dark-icon {
+  display: block;
+}
+
+@media (width <= breakpoints.$tablet) {
+  :global(.theme-layout-navbar-right) .theme-toggle {
+    display: block;
+    flex-shrink: 0;
+  }
+
+  :global(.theme-layout-navbar-right) .search-container {
+    position: static;
+  }
+}

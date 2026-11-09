@@ -1,0 +1,64 @@
+@font-face {
+  font-family: Pretendard;
+  src: url('../../assets/fonts/pretendard/PretendardStd-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.markdown details {
+  --docusaurus-details-decoration-color: var(--ifm-color-emphasis-300);
+
+  background-color: var(--ifm-background-surface-color);
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+.markdown details > summary {
+  color: var(--ifm-font-color-base);
+}
+
+.markdown details > summary::before {
+  border-left-color: var(--ifm-font-color-base);
+}
+
+.doc-library-app {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: var(--library-viewport-height);
+}
+
+::view-transition-group(root),
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--library-motion-duration);
+  animation-timing-function: var(--library-motion-easing);
+}
+
+::view-transition {
+  pointer-events: none;
+}
+
+@supports not (view-transition-name: root) {
+  @media (prefers-reduced-motion: no-preference) {
+    body,
+    .navbar,
+    .navbar-sidebar,
+    .theme-doc-sidebar-container {
+      transition:
+        background-color var(--library-motion-duration) var(--library-motion-easing),
+        color var(--library-motion-duration) var(--library-motion-easing);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --library-motion-duration: 0ms;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}

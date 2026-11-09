@@ -1,0 +1,21 @@
+[data-theme='light'] a[rel='tag'] {
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 999px;
+  background: var(--ifm-color-primary);
+  color: var(--library-on-accent);
+}
+
+[data-theme='light'] a[rel='tag']::before,
+[data-theme='light'] a[rel='tag']::after {
+  display: none;
+}
+
+[data-theme='light'] a[rel='tag']:hover {
+  border-color: var(--ifm-color-primary-dark);
+  background: var(--ifm-color-primary-dark);
+}
+
+[data-theme='light'] a[rel='tag']:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 3px;
+}

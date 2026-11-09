@@ -1,0 +1,4 @@
+/* Site-owned styles load after the shared theme. */
+:root {
+  --library-font-size-brand: 1.25rem;
+}

@@ -1,0 +1,62 @@
+:root {
+  --ifm-background-color: #f5f5f2;
+  --ifm-background-surface-color: #fafaf7;
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 10%);
+  --library-on-accent: #fff;
+  --library-control-active-bg: var(--ifm-color-primary);
+  --library-control-active-fg: #fff;
+  --library-status-new-bg: var(--ifm-color-primary);
+  --library-status-new-fg: var(--library-on-accent);
+  --library-status-updated-bg: #475569;
+  --library-status-updated-fg: var(--library-on-accent);
+  --library-badge-0-bg: #dbeafe;
+  --library-badge-0-fg: #1e40af;
+  --library-badge-1-bg: #ccfbf1;
+  --library-badge-1-fg: #115e59;
+  --library-badge-2-bg: #ede9fe;
+  --library-badge-2-fg: #5b21b6;
+  --library-badge-3-bg: #fef3c7;
+  --library-badge-3-fg: #92400e;
+  --library-badge-4-bg: #ffe4e6;
+  --library-badge-4-fg: #9f1239;
+  --library-badge-5-bg: #e2e8f0;
+  --library-badge-5-fg: #334155;
+}
+
+[data-theme='dark'] {
+  --ifm-background-color: #1b1b1d;
+  --ifm-background-surface-color: #242526;
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 30%);
+  --library-on-accent: #102a23;
+  --library-control-active-bg: #21765f;
+  --library-status-new-bg: #164c3b;
+  --library-status-new-fg: #bbf7d0;
+  --library-status-updated-bg: var(--library-badge-5-bg);
+  --library-status-updated-fg: var(--library-badge-5-fg);
+  --library-badge-0-bg: #1e3a5f;
+  --library-badge-0-fg: #bfdbfe;
+  --library-badge-1-bg: #134e4a;
+  --library-badge-1-fg: #99f6e4;
+  --library-badge-2-bg: #3b2362;
+  --library-badge-2-fg: #ddd6fe;
+  --library-badge-3-bg: #5b3b13;
+  --library-badge-3-fg: #fde68a;
+  --library-badge-4-bg: #591f35;
+  --library-badge-4-fg: #fecdd3;
+  --library-badge-5-bg: #334155;
+  --library-badge-5-fg: #e2e8f0;
+}

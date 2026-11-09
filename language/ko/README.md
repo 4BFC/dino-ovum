@@ -38,45 +38,88 @@ dino-nest를 위한 공통 Docusaurus preset과 theme입니다.
 
 ## 스펙
 
-Dino Ovum의 패키지 구성과 역할입니다.
+Dino Ovum 0.1.0은 두 패키지로 구성됩니다.
 
 | 구성 | 패키지 | 설명 |
 | --- | --- | --- |
-| ![Dino Ovum Preset](https://img.shields.io/badge/Dino_Ovum-preset-2e8555?style=flat-square) | `@dino-ovum/preset` | 공통 사이트 설정, 문서·사이드바 구성, 검색·PWA·탐색·최근 업데이트 플러그인 |
+| ![Dino Ovum Preset](https://img.shields.io/badge/Dino_Ovum-preset-2e8555?style=flat-square) | `@dino-ovum/preset` | 공통 사이트 설정, 문서·사이드바, 검색·PWA·탐색·최근 업데이트 |
 | ![Dino Ovum Theme](https://img.shields.io/badge/Dino_Ovum-theme-2e8555?style=flat-square) | `@dino-ovum/theme` | 공통 UI·컴포넌트·레이아웃·스타일·폰트·기본 UI 번역 |
+
+패키지의 지원 대상은 Docusaurus **3.10.1**, React **19**, Node.js **>=24.22.1 <25**입니다. 개발 workspace는 pnpm **10.5.2**를 사용합니다. 초기 버전은 문서 루트 하나를 지원합니다.
 
 ## 설치
 
-현재 저장소에는 문서와 프로젝트 브랜딩이 있습니다. 패키지 분리와 배포는 아직 완료하지 않았으므로 설치 명령은 제공하지 않습니다.
+Node.js와 pnpm을 준비한 뒤 이 저장소의 개발·검증용 사이트를 실행합니다.
 
-작업 단계와 검증 기준은 [구현 계획](../../docs/implementation-plan.md)을 참고하세요.
+```sh
+git clone https://github.com/4BFC/dino-ovum.git
+cd dino-ovum
+nvm use
+pnpm install --frozen-lockfile
+pnpm start
+```
+
+`nvm use`는 `.nvmrc`의 Node.js 버전을 선택합니다. 이미 해당 버전을 사용 중이면 생략합니다.
+
+패키지 구현은 완료했으며 **npm에는 아직 배포하지 않았습니다**. 배포 형태의 압축 파일은 다음 명령으로 만듭니다.
+
+```sh
+pnpm pack:packages
+```
+
+`artifacts/`에 두 `.tgz` 파일이 생성됩니다. npm 배포 전에 다른 사이트에 설치하는 방법은 [개발 안내](../../docs/development.md)를 참고하세요.
 
 ## 사용법
 
-나만의 문서 사이트를 만들 때는 [dino-nest](https://github.com/4BFC/dino-nest)를 템플릿으로 사용합니다. Dino Ovum은 그 공통 패키지를 개발하고 배포하는 저장소입니다.
+사이트 설정에서 preset을 연결합니다.
 
-목표 관계는 다음과 같습니다.
+```js
+import {createDinoConfig} from '@dino-ovum/preset/config';
+
+export default createDinoConfig(
+  {
+    title: 'My documents',
+    url: 'https://example.com',
+    baseUrl: '/',
+    themeConfig: {navbar: {logo: {src: 'img/logo.svg'}}},
+  },
+  {
+    customCss: './src/css/custom.css',
+    updates: true,
+    pwa: false,
+  },
+);
+```
+
+문서는 `documents/`, 이미지는 `public/`, 사용자 스타일은 `src/css/custom.css`에 둡니다. preset이 공통 theme을 함께 불러옵니다. 검색은 기본 활성화이며 PWA와 최근 업데이트 페이지는 선택 기능입니다.
 
 ```text
-dino-nest
+사용자 사이트 (이전 후의 dino-nest)
   → @dino-ovum/preset
       → @dino-ovum/theme
 ```
 
-문서·로고·사이트 설정·사용자 CSS는 사용자 프로젝트에 남깁니다. 공통 개선은 패키지 업데이트, 빌드 검사, 재배포를 거쳐 사이트에 반영합니다.
+`website/`는 공통 app이나 theme의 로컬 복사본 없이 이 구조로 실행됩니다. 패키지 버전을 올리면 사이트 파일을 유지하면서 공통 개선을 받을 수 있습니다. 이번 구현에서 기존 dino-nest 저장소를 이전하지는 않았습니다.
 
-저장소 경계와 커스텀 방식은 [아키텍처 문서](../../docs/architecture.md)를 참고하세요.
+자세한 내용은 [설정 안내](../../docs/configuration.md), [아키텍처](../../docs/architecture.md), [이전 안내](../../docs/migration.md)를 참고하세요.
 
 ## 주요 기능
 
-패키지는 다음 역할로 설계합니다.
+- 공통 문서 설정, 자동 사이드바, 로컬 검색.
+- 문서 탐색과 선택 가능한 최근 업데이트 페이지.
+- 공통 레이아웃·스타일·Pretendard 폰트와 밝은/어두운 테마.
+- 영어·한국어·일본어 UI와 사용자 번역 재정의.
+- 하위 경로 배포를 지원하는 선택형 PWA manifest와 오프라인 기능.
+- 패키지 업데이트 후에도 유지되는 사용자 CSS와 컴포넌트 래퍼.
 
-- 문서·검색·PWA·사이드바의 공통 구성.
-- 탐색과 최근 업데이트 데이터 생성.
-- 공통 레이아웃·컴포넌트·스타일·폰트.
-- 기본 UI 번역과 사용자 커스텀 지원.
+```sh
+pnpm build             # 세 언어 전체 빌드
+pnpm serve             # 프로덕션 사이트 미리보기
+pnpm check             # 린트, 단위 테스트, 사이트 빌드
+pnpm verify:packages   # 독립된 사이트에서 압축 패키지 설치·업그레이드 검증
+```
 
-첫 구현 완료 지점은 실제 배포 형태의 패키지를 사용하는 검증용 사이트입니다. 현재 진행 상태는 [구현 계획](../../docs/implementation-plan.md)에 정리합니다.
+완료한 패키지 작업과 이후 npm 배포·템플릿 이전 범위는 [구현 계획](../../docs/implementation-plan.md)에 정리합니다.
 
 ## 관리자
 
@@ -85,9 +128,9 @@ dino-nest
 ## 기여
 
 질문과 버그 제보는 [GitHub Issues](https://github.com/4BFC/dino-ovum/issues)에 남겨 주세요.
-패키지 변경을 제안하기 전에 [아키텍처](../../docs/architecture.md)와 [구현 계획](../../docs/implementation-plan.md)을 확인하세요.
+패키지를 변경하기 전에 [개발 안내](../../docs/development.md)를 확인하세요.
 
 ## 라이선스
 
 [Unlicense](../../LICENSE)를 적용합니다.
-외부 에셋과 의존성은 각각의 라이선스와 고지를 유지합니다.
+[NOTICE](../../NOTICE)는 dino-nest에서 가져온 코드와 예제의 원래 MIT 고지를 보존합니다. 외부 에셋과 의존성은 각각의 라이선스를 유지합니다.

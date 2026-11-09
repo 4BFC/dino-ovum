@@ -1,0 +1,59 @@
+@use '../tokens/breakpoints' as breakpoints;
+
+.layout {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+}
+
+.sidebar {
+  display: none;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.content {
+  padding: var(--library-content-padding-top) var(--library-content-gutter)
+    var(--library-content-padding-bottom);
+}
+
+@media (width >= breakpoints.$desktop) {
+  .sidebar {
+    position: sticky;
+    top: var(--ifm-navbar-height);
+    display: block;
+    flex-shrink: 0;
+    width: var(--library-sidebar-width);
+    height: calc(var(--library-viewport-height) - var(--ifm-navbar-height));
+    overflow: hidden;
+    border-right: 1px solid var(--ifm-color-emphasis-300);
+    background: var(--ifm-background-color);
+    transition: width var(--library-motion-duration) var(--library-motion-easing);
+  }
+
+  .navigation {
+    width: var(--library-sidebar-width);
+    height: 100%;
+    padding-block: 1rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    transition:
+      transform var(--library-motion-duration) var(--library-motion-easing),
+      opacity var(--library-motion-duration) var(--library-motion-easing);
+  }
+
+  .layout[data-collapsed='true'] {
+    .sidebar {
+      width: 0;
+      border-right-width: 0;
+    }
+
+    .navigation {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+  }
+}

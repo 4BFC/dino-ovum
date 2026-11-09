@@ -1,0 +1,36 @@
+---
+title: ホーム
+description: Dino Ovum preset と theme の検証サイトです。
+slug: /
+sidebar_position: 1
+hide_title: true
+hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
+created_at: 2026-11-09
+updated_at: 2026-11-10
+---
+
+import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import HomeHeading from '@theme/DinoOvum/HomeHeading';
+
+<div className="library-home">
+
+<HomeHeading />
+
+自分の文書サイトのための共通パッケージです。
+
+Dino Ovum は dino-nest から分離した共通設定と画面を提供します。
+このサイトは `@dino-ovum/preset` と theme を読み込み、文書・画像・カスタム CSS はサイト側で管理します。
+
+文書検索、言語切り替え、ライト／ダークテーマ、最近の更新ページを確認できます。
+
+<div className="library-home__actions">
+  <Link className="button button--outline button--secondary" to={useBaseUrl('/license')}>Unlicense <span aria-hidden="true">→</span></Link>
+  <a className="button button--outline button--secondary" href="https://github.com/4BFC/dino-ovum">パッケージを見る <span aria-hidden="true">↗</span></a>
+</div>
+
+<p className="library-home__guide">ソースコードと起動方法はこちらです： <a href="https://github.com/4BFC/dino-ovum">Dino Ovum</a>.</p>
+
+</div>

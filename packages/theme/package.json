@@ -1,0 +1,40 @@
+{
+  "version": "0.1.0",
+  "type": "module",
+  "license": "Unlicense",
+  "author": "4BFC",
+  "engines": {
+    "node": ">=24.22.1 <25"
+  },
+  "files": [
+    "src",
+    "LICENSE",
+    "NOTICE",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/4BFC/dino-ovum.git"
+  },
+  "name": "@dino-ovum/theme",
+  "description": "Shared Docusaurus components and styles for Dino Ovum.",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./utils": "./src/utils.js",
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@docusaurus/plugin-content-docs": "3.10.1",
+    "@docusaurus/theme-common": "3.10.1",
+    "clsx": "^2.0.0"
+  },
+  "peerDependencies": {
+    "@docusaurus/core": "3.10.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

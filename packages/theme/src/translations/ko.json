@@ -1,0 +1,92 @@
+{
+  "docnest.language.label": {
+    "message": "언어 변경"
+  },
+  "docnest.breadcrumbs": {
+    "message": "탐색 경로"
+  },
+  "docnest.navigation": {
+    "message": "문서 탐색"
+  },
+  "docnest.navigation.collapse": {
+    "message": "탐색 패널 접기"
+  },
+  "docnest.navigation.expand": {
+    "message": "탐색 패널 펼치기"
+  },
+  "docnest.theme.light": {
+    "message": "라이트 모드로 전환"
+  },
+  "docnest.theme.dark": {
+    "message": "다크 모드로 전환"
+  },
+  "docnest.documents.in": {
+    "message": "{directory}의 문서"
+  },
+  "docnest.all": {
+    "message": "전체"
+  },
+  "docnest.documents.count": {
+    "message": "전체 {total}개 중 {start}–{end}"
+  },
+  "docnest.documents.empty": {
+    "message": "문서가 없습니다"
+  },
+  "docnest.documents.caption": {
+    "message": "{directory}의 모든 문서"
+  },
+  "docnest.document": {
+    "message": "문서"
+  },
+  "docnest.category": {
+    "message": "분류"
+  },
+  "docnest.updated": {
+    "message": "수정"
+  },
+  "docnest.pagination": {
+    "message": "문서 페이지"
+  },
+  "docnest.pagination.previous": {
+    "message": "이전 페이지"
+  },
+  "docnest.pagination.next": {
+    "message": "다음 페이지"
+  },
+  "docnest.pagination.page": {
+    "message": "{number}페이지"
+  },
+  "docnest.updates.title": {
+    "message": "최근 업데이트"
+  },
+  "docnest.updates.description": {
+    "message": "최근 추가되거나 수정된 문서를 날짜와 문서 공간별로 찾아보세요."
+  },
+  "docnest.updates.range": {
+    "message": "날짜 범위"
+  },
+  "docnest.updates.days": {
+    "message": "최근 {days}일"
+  },
+  "docnest.updates.allTime": {
+    "message": "전체 기간"
+  },
+  "docnest.updates.spaces": {
+    "message": "문서 공간"
+  },
+  "docnest.updates.newOnly": {
+    "message": "새 문서만 보기"
+  },
+  "docnest.updates.summary": {
+    "message": "{dates}개 날짜, {total}개 문서"
+  },
+  "docnest.updates.dayCount": {
+    "message": ", 문서 {total}개"
+  },
+  "docnest.new": {
+    "message": "신규"
+  },
+  "docnest.updates.empty": {
+    "message": "조건에 맞는 문서가 없습니다."
+  }
+}
