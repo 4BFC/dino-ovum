@@ -7,3 +7,16 @@ coverage/
 *.log
 .env
 .env.*
+
+# Local AI instructions, rules, and credentials
+.claude/
+.codex/
+.agents/
+CLAUDE.md
+CLAUDE.*.md
+AGENTS.md
+AGENTS.*.md
+.claude.json
+.claude.json.*
+.mcp.json
+.mcp.local.json
