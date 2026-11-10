@@ -8,7 +8,7 @@
 
 dino-nest のための共通 Docusaurus preset と theme です。
 
-[![Unlicense](https://img.shields.io/badge/License-Unlicense-blue.svg?style=flat-square)](../../LICENSE)
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](../../LICENSE)
 [![Standard Readme](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
 文書、ブランド、サイト設定は自分のプロジェクトで管理できます。Dino Ovum は preset と theme
@@ -134,5 +134,4 @@ pnpm verify:packages   # 独立したサイトでアーカイブのインスト�
 
 ## ライセンス
 
-[Unlicense](../../LICENSE) を適用します。
-[NOTICE](../../NOTICE) に dino-nest 由来のコードと例の MIT 表示を残しています。外部の素材と依存パッケージはそれぞれのライセンスを維持します。
+[MIT](../../LICENSE) を適用します。コードは同じライセンスと著作権者の dino-nest から分離しました。外部の素材と依存パッケージはそれぞれのライセンスを維持します。

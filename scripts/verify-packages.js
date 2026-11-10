@@ -62,7 +62,6 @@ try {
     for (const required of [
       'package/package.json',
       'package/LICENSE',
-      'package/NOTICE',
       'package/README.md',
     ])
       assert.ok(files.includes(required));

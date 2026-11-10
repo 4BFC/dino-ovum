@@ -8,7 +8,7 @@
 
 Shared Docusaurus presets and themes for dino-nest.
 
-[![Unlicense](https://img.shields.io/badge/License-Unlicense-blue.svg?style=flat-square)](../../LICENSE)
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](../../LICENSE)
 [![Standard Readme](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
 Keep your documents, branding, and settings in your own site. Dino Ovum brings shared
@@ -134,5 +134,4 @@ Read the [development guide](../../docs/development.md) before changing the pack
 
 ## License
 
-[Unlicense](../../LICENSE).
-[NOTICE](../../NOTICE) preserves the original MIT notice for code and examples from dino-nest. Third-party assets and dependencies retain their own licenses.
+[MIT](../../LICENSE). The code was extracted from dino-nest, which uses the same license and copyright holder. Third-party assets and dependencies retain their own licenses.

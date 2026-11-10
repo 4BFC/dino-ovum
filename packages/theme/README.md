@@ -20,4 +20,4 @@ Korean and Japanese UI messages are bundled; English messages are provided by th
 
 Pure route, date, and document-location helpers are exported from `@dino-ovum/theme/utils` for build-time integration. Internal `src/app` paths are not public API.
 
-Unlicense. `NOTICE` preserves the MIT notice for extracted dino-nest code. The bundled Pretendard font retains its license in `src/assets/fonts/pretendard/LICENSE`.
+MIT. The bundled Pretendard font retains its license in `src/assets/fonts/pretendard/LICENSE`.

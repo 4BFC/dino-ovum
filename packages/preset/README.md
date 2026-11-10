@@ -17,4 +17,4 @@ Search is enabled by default. PWA and the `/updates` page are opt-in. Site setti
 
 Read the [configuration guide](https://github.com/4BFC/dino-ovum/blob/main/docs/configuration.md) for options, translation overrides, and migration. See the [repository README](https://github.com/4BFC/dino-ovum#install) for local archive installation while the initial release is being prepared.
 
-Unlicense. The `NOTICE` file preserves the MIT notice for code extracted from dino-nest. Dependencies retain their own licenses.
+MIT. Dependencies retain their own licenses.
