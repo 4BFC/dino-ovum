@@ -88,5 +88,20 @@
   },
   "docnest.updates.empty": {
     "message": "条件に一致する文書がありません。"
+  },
+  "docnest.error.title": {
+    "message": "エラーが発生しました"
+  },
+  "docnest.error.description": {
+    "message": "ページを表示できませんでした。もう一度試すか、ホームに戻ってください。"
+  },
+  "docnest.error.retry": {
+    "message": "もう一度試す"
+  },
+  "docnest.error.home": {
+    "message": "ホームに戻る"
+  },
+  "docnest.error.details": {
+    "message": "エラーの詳細"
   }
 }
