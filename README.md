@@ -24,7 +24,7 @@ features and design to dino-nest through the preset and theme packages.
 </table>
 </div>
 
-Design and implementation documents are maintained in Korean in `docs/`.
+The configuration and migration guides are maintained in Korean in `docs/`.
 
 ## Table of Contents
 
@@ -67,7 +67,7 @@ pnpm start
 
 `nvm use` selects the version in `.nvmrc`; skip it if that Node.js version is already active.
 
-To try unpublished changes in another site, create local archives with `pnpm pack:packages` and follow the [development guide](./docs/development.md).
+To try unpublished changes in another site, create local archives with `pnpm pack:packages`.
 
 ## Usage
 
@@ -101,7 +101,7 @@ user site (dino-nest after migration)
 
 `website/` demonstrates this structure without local copies of the shared application or theme. Updating the packages brings shared improvements while preserving site files. The existing dino-nest repository has not been migrated as part of this implementation.
 
-See the [configuration guide](./docs/configuration.md), [architecture](./docs/architecture.md), and [migration guide](./docs/migration.md).
+See the [configuration guide](./docs/configuration.md) and [migration guide](./docs/migration.md).
 
 ## Features
 
@@ -121,8 +121,6 @@ pnpm check             # Lint, unit tests, and site build
 pnpm verify:packages   # Isolated archive installation and upgrade checks
 ```
 
-The [implementation plan](./docs/implementation-plan.md) separates completed package work from npm publication and template migration.
-
 ## Maintainer
 
 [4BFC](https://github.com/4BFC)
@@ -130,7 +128,7 @@ The [implementation plan](./docs/implementation-plan.md) separates completed pac
 ## Contributing
 
 Questions and bug reports are welcome in [GitHub Issues](https://github.com/4BFC/dino-ovum/issues).
-Read the [development guide](./docs/development.md) before changing the packages.
+Run `pnpm check` and `pnpm verify:packages` after changing the packages.
 
 ## License
 

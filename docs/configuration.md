@@ -49,7 +49,14 @@ export default createDinoConfig(
 - Agentation은 배포 패키지에 포함하지 않습니다. 개발 도구가 필요한 사이트에서 직접 연결합니다.
 - `future.faster`는 기본 `false`입니다. `future.v4`의 스타일·설정 호환 동작은 유지하면서 선택형 Faster 의존성을 필수로 만들지 않습니다.
 
-사이트 `package.json`의 `browserslist`는 [개발 안내](./development.md)의 예제를 사용합니다. 현재 지원 브라우저 범위를 유지하는 빌드 입력입니다.
+사이트 `package.json`에는 다음 `browserslist`를 둡니다. 현재 지원 브라우저 범위를 유지하는 빌드 입력입니다. 생략하면 Babel이 오래된 브라우저용으로 async 함수를 변환하면서 Mermaid의 선택 import가 제거되지 않아 빌드가 실패할 수 있습니다.
+
+```json
+"browserslist": {
+  "production": [">0.5%", "not dead", "not op_mini all"],
+  "development": ["last 3 chrome version", "last 3 firefox version", "last 5 safari version"]
+}
+```
 
 ## PWA와 배포 경로
 

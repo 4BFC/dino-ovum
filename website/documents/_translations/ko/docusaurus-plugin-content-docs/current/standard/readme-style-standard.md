@@ -8,7 +8,7 @@ created_at: 2026-11-09
 updated_at: 2026-11-09
 ---
 
-> 이 문서는 dino-nest에서 가져온 검증용 예제입니다. 표·제목·링크·번역된 탐색 메뉴의 렌더링을 확인합니다. Dino Ovum 저장소의 작업 방법은 [개발 안내](https://github.com/4BFC/dino-ovum/blob/main/docs/development.md)를 참고하세요.
+> 이 문서는 dino-nest에서 가져온 검증용 예제입니다. 표·제목·링크·번역된 탐색 메뉴의 렌더링을 확인합니다. Dino Ovum 저장소의 작업 방법은 [README](https://github.com/4BFC/dino-ovum#readme)를 참고하세요.
 
 
 Docnest의 사용자 안내와 개발 안내를 작성하는 기준입니다. 공통 작성 기준은 `documents/standard/`에 모으고 사이트에서 함께 공개합니다.

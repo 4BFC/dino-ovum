@@ -8,7 +8,7 @@ created_at: 2026-11-09
 updated_at: 2026-11-09
 ---
 
-> この文書は dino-nest 由来の検証用サンプルです。表・見出し・リンク・翻訳されたナビゲーションの表示を確認します。Dino Ovum リポジトリの作業方法は[開発ガイド](https://github.com/4BFC/dino-ovum/blob/main/docs/development.md)を参照してください。
+> この文書は dino-nest 由来の検証用サンプルです。表・見出し・リンク・翻訳されたナビゲーションの表示を確認します。Dino Ovum リポジトリの作業方法は[README](https://github.com/4BFC/dino-ovum#readme)を参照してください。
 
 
 Docnest のユーザー向けガイドと開発者向けガイドの執筆基準です。共通の基準は `documents/standard/` にまとめ、サイトにも公開します。

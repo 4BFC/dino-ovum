@@ -1,7 +1,7 @@
 // Docusaurus 3.10.1 generates mixed ESM/CommonJS (registry, client modules).
 // Scope: generated JS parsing and temporary CommonJS SSG chunks only.
 // Upstream: https://github.com/facebook/docusaurus/discussions/11326
-// Recheck this compatibility layer when upgrading Docusaurus; see docs/development.md.
+// Recheck this compatibility layer when upgrading Docusaurus.
 export default function generatedModuleCompat({generatedFilesDir}) {
   return {
     name: 'generated-module-compat',

@@ -24,7 +24,7 @@ dino-nest를 위한 공통 Docusaurus preset과 theme입니다.
 </table>
 </div>
 
-설계와 구현 문서는 `docs/`에서 한국어로 관리합니다.
+설정 안내와 이전 안내는 `docs/`에서 한국어로 관리합니다.
 
 ## 목차
 
@@ -67,7 +67,7 @@ pnpm start
 
 `nvm use`는 `.nvmrc`의 Node.js 버전을 선택합니다. 이미 해당 버전을 사용 중이면 생략합니다.
 
-배포하지 않은 변경을 다른 사이트에서 확인할 때는 `pnpm pack:packages`로 압축 파일을 만들고 [개발 안내](../../docs/development.md)를 따릅니다.
+배포하지 않은 변경을 다른 사이트에서 확인할 때는 `pnpm pack:packages`로 압축 파일을 만듭니다.
 
 ## 사용법
 
@@ -101,7 +101,7 @@ export default createDinoConfig(
 
 `website/`는 공통 app이나 theme의 로컬 복사본 없이 이 구조로 실행됩니다. 패키지 버전을 올리면 사이트 파일을 유지하면서 공통 개선을 받을 수 있습니다. 이번 구현에서 기존 dino-nest 저장소를 이전하지는 않았습니다.
 
-자세한 내용은 [설정 안내](../../docs/configuration.md), [아키텍처](../../docs/architecture.md), [이전 안내](../../docs/migration.md)를 참고하세요.
+자세한 내용은 [설정 안내](../../docs/configuration.md)와 [이전 안내](../../docs/migration.md)를 참고하세요.
 
 ## 주요 기능
 
@@ -121,8 +121,6 @@ pnpm check             # 린트, 단위 테스트, 사이트 빌드
 pnpm verify:packages   # 독립된 사이트에서 압축 패키지 설치·업그레이드 검증
 ```
 
-완료한 패키지 작업과 이후 npm 배포·템플릿 이전 범위는 [구현 계획](../../docs/implementation-plan.md)에 정리합니다.
-
 ## 관리자
 
 [4BFC](https://github.com/4BFC)
@@ -130,7 +128,7 @@ pnpm verify:packages   # 독립된 사이트에서 압축 패키지 설치·업�
 ## 기여
 
 질문과 버그 제보는 [GitHub Issues](https://github.com/4BFC/dino-ovum/issues)에 남겨 주세요.
-패키지를 변경하기 전에 [개발 안내](../../docs/development.md)를 확인하세요.
+패키지를 변경한 뒤에는 `pnpm check`와 `pnpm verify:packages`를 실행해 주세요.
 
 ## 라이선스
 

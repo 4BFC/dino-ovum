@@ -8,7 +8,7 @@ created_at: 2026-11-09
 updated_at: 2026-11-09
 ---
 
-> This sample document comes from dino-nest. It verifies the rendering of tables, headings, links, and translated navigation. For the Dino Ovum repository workflow, see the [development guide](https://github.com/4BFC/dino-ovum/blob/main/docs/development.md).
+> This sample document comes from dino-nest. It verifies the rendering of tables, headings, links, and translated navigation. For the Dino Ovum repository workflow, see the [README](https://github.com/4BFC/dino-ovum#readme).
 
 
 This guide defines how Docnest's user and contributor documentation is written. Shared writing standards live in `documents/standard/` and are published on the site.

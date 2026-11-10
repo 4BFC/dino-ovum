@@ -24,7 +24,7 @@ dino-nest のための共通 Docusaurus preset と theme です。
 </table>
 </div>
 
-設計と実装の文書は `docs/` で韓国語として管理します。
+設定ガイドと移行ガイドは `docs/` で韓国語として管理します。
 
 ## 目次
 
@@ -67,7 +67,7 @@ pnpm start
 
 `nvm use` は `.nvmrc` の Node.js バージョンを選択します。すでに同じバージョンを使っている場合は省略できます。
 
-未公開の変更を別のサイトで確認するときは、`pnpm pack:packages` でアーカイブを作成し、[開発ガイド](../../docs/development.md)に従います。
+未公開の変更を別のサイトで確認するときは、`pnpm pack:packages` でアーカイブを作成します。
 
 ## 使い方
 
@@ -101,7 +101,7 @@ export default createDinoConfig(
 
 `website/` は共通 app や theme のローカルコピーを持たず、この構成で動作します。パッケージを更新すると、サイトのファイルを保ちながら共通の改善を受け取れます。今回の実装では既存の dino-nest リポジトリは移行していません。
 
-詳細は[設定ガイド](../../docs/configuration.md)、[アーキテクチャ](../../docs/architecture.md)、[移行ガイド](../../docs/migration.md)を参照してください。
+詳細は[設定ガイド](../../docs/configuration.md)と[移行ガイド](../../docs/migration.md)を参照してください。
 
 ## 主な機能
 
@@ -121,8 +121,6 @@ pnpm check             # Lint、単体テスト、サイトビルド
 pnpm verify:packages   # 独立したサイトでアーカイブのインストールと更新を検証
 ```
 
-完了した実装と、今後の npm 公開・テンプレート移行は[実装計画](../../docs/implementation-plan.md)に記載しています。
-
 ## メンテナー
 
 [4BFC](https://github.com/4BFC)
@@ -130,7 +128,7 @@ pnpm verify:packages   # 独立したサイトでアーカイブのインスト�
 ## 貢献
 
 質問や不具合は [GitHub Issues](https://github.com/4BFC/dino-ovum/issues) にお寄せください。
-パッケージを変更する前に[開発ガイド](../../docs/development.md)を確認してください。
+パッケージを変更したら `pnpm check` と `pnpm verify:packages` を実行してください。
 
 ## ライセンス
 
