@@ -110,3 +110,23 @@ test('PWA paths follow the locale and subpath while preserving external assets',
   );
   assert.equal(assetUrl('img/logo.svg', '/'), '/img/logo.svg');
 });
+
+test('home menu stays active on translated and subpath home pages', () => {
+  const homeItem = (site, options) =>
+    createDinoConfig(site, options).themeConfig.navbar.items.find((item) => item.label === 'Home');
+  const isActive = (item, pathname) => new RegExp(item.activeBaseRegex).test(pathname);
+
+  const root = homeItem({title: 'Docs', url: 'https://example.com'});
+  for (const pathname of ['/', '/ko/', '/ja/']) assert.ok(isActive(root, pathname), pathname);
+  for (const pathname of ['/license', '/ko/license', '/fr/'])
+    assert.ok(!isActive(root, pathname), pathname);
+
+  const nested = homeItem(
+    {title: 'Docs', url: 'https://example.com', baseUrl: '/handbook/'},
+    {documents: {routeBasePath: '/docs'}},
+  );
+  for (const pathname of ['/handbook/docs', '/handbook/ko/docs/'])
+    assert.ok(isActive(nested, pathname), pathname);
+  for (const pathname of ['/docs', '/handbook/docs/intro'])
+    assert.ok(!isActive(nested, pathname), pathname);
+});

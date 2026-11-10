@@ -19,6 +19,19 @@ export function mergeConfig(defaults, overrides) {
   return result;
 }
 
+const escapeRegex = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+// activeBaseRegex is tested against the full pathname, which carries the
+// baseUrl and, outside the default locale, a locale segment.
+export function createHomeActiveRegex({baseUrl, home, localePrefixes}) {
+  const base = escapeRegex(`/${baseUrl.replace(/^\/+|\/+$/g, '')}/`.replace(/^\/\/$/, '/'));
+  const locale = localePrefixes.length
+    ? `(?:(?:${localePrefixes.map(escapeRegex).join('|')})/)?`
+    : '';
+  const homePath = home.replace(/^\/+|\/+$/g, '');
+  return `^${base}${locale}${homePath ? `${escapeRegex(homePath)}/?` : ''}$`;
+}
+
 export function createDinoConfig(siteConfig, presetOptions = {}) {
   if (!siteConfig?.title || !siteConfig?.url) {
     throw new TypeError('createDinoConfig requires a site title and URL.');
@@ -31,6 +44,12 @@ export function createDinoConfig(siteConfig, presetOptions = {}) {
     ja: {label: '日本語', htmlLang: 'ja'},
   };
   const home = `/${options.documents.routeBasePath.replace(/^\/+|\/+$/g, '')}`;
+  const defaultLocale = siteConfig.i18n?.defaultLocale ?? locales[0];
+  const homeActiveRegex = createHomeActiveRegex({
+    baseUrl: siteConfig.baseUrl ?? '/',
+    home,
+    localePrefixes: locales.filter((locale) => locale !== defaultLocale),
+  });
   const defaults = {
     baseUrl: '/',
     staticDirectories: ['public'],
@@ -59,7 +78,7 @@ export function createDinoConfig(siteConfig, presetOptions = {}) {
             to: home,
             label: 'Home',
             position: 'right',
-            activeBaseRegex: '^' + home.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$',
+            activeBaseRegex: homeActiveRegex,
           },
           ...(options.updates ? [{type: 'custom-recentUpdates', position: 'right'}] : []),
           ...(locales.length > 1 ? [{type: 'custom-languageDropdown', position: 'right'}] : []),
