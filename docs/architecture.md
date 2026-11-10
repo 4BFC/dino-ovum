@@ -4,7 +4,7 @@
 
 Dino Ovum은 dino-nest의 공통 기능과 디자인을 두 패키지로 제공합니다. 사용자는 자신의 문서·브랜딩·설정을 유지하면서 패키지 업데이트로 공통 개선 사항을 받습니다.
 
-`@dino-ovum/preset`과 `@dino-ovum/theme`의 0.1.0 구현 및 검증용 `website/`가 있습니다. 공통 코드의 분리 기준은 dino-nest의 `aa0335e1864457f7f578256a6e177d0b6cb42dca` 커밋입니다. 원본 저장소의 미커밋 작업은 가져오지 않았습니다. npm 배포와 dino-nest의 실제 전환은 후속 단계입니다.
+`@dino-ovum/preset`과 `@dino-ovum/theme`의 0.1.0 구현 및 검증용 `website/`가 있습니다. 공통 코드의 분리 기준은 dino-nest의 `aa0335e1864457f7f578256a6e177d0b6cb42dca` 커밋입니다. 원본 저장소의 미커밋 작업은 가져오지 않았습니다. 두 패키지 0.1.0은 npm에 공개했으며 dino-nest의 실제 전환은 후속 단계입니다.
 
 ## 저장소 경계
 
@@ -89,7 +89,7 @@ theme은 공통 React 컴포넌트·훅·프로바이더·레이아웃·스타�
 ```text
 공통 코드 변경
   → pnpm check 및 pnpm verify:packages
-  → 두 패키지의 호환 버전 배포 (최초 npm 배포는 후속 단계)
+  → theme, preset 순서로 호환 버전 배포
   → 사용자 사이트의 패키지 버전·잠금 파일 변경
   → 사용자 문서를 포함한 사이트 빌드 검증
   → 호스팅 재배포

@@ -43,9 +43,9 @@ pnpm verify:packages
 
 검증용 파일은 종료 시 삭제됩니다. 실패한 사이트를 조사할 때는 `DINO_OVUM_KEEP_VERIFICATION=1 pnpm verify:packages`로 임시 경로를 남길 수 있습니다.
 
-## npm 공개 전 다른 사이트에 설치
+## 공개 전 변경을 다른 사이트에 설치
 
-현재 npm 공개는 하지 않았습니다. 저장소 루트에서 압축 파일을 만듭니다.
+0.1.0은 npm에 공개되어 있습니다. 공개하지 않은 변경을 다른 사이트에서 확인할 때는 저장소 루트에서 압축 파일을 만듭니다.
 
 ```sh
 pnpm pack:packages
@@ -99,8 +99,10 @@ pnpm은 선택 peer 의존성 조합에 따라 같은 버전의 Docusaurus 모�
 
 생성 모듈 호환 플러그인은 Docusaurus 3.10.1의 생성 JS와 서버용 CommonJS 청크 확장자만 조정합니다. Docusaurus를 올릴 때 이 플러그인과 context 연결, 패키지 JSX 변환이 여전히 필요한지 확인합니다.
 
-## 최초 공개 전 확인
+## 공개 절차
 
-npm 범위의 소유권·권한 확인과 실제 공개는 아직 남아 있습니다. 공개할 때는 두 패키지 버전을 함께 관리하고 `check`와 `verify:packages`를 통과한 압축 파일을 사용합니다. theme을 먼저 공개하고, 같은 theme 버전에 의존하는 preset을 공개합니다. 루트와 검증 사이트는 공개하지 않습니다.
+0.1.0은 npm org `dino-ovum`으로 공개했습니다. 새 버전을 공개할 때는 두 패키지 버전을 함께 관리하고 `check`와 `verify:packages`를 통과한 압축 파일을 사용합니다. theme을 먼저 공개하고, 같은 theme 버전에 의존하는 preset을 공개합니다. 루트와 검증 사이트는 공개하지 않습니다.
 
-공개 후 사용자 사이트는 preset의 registry 버전을 설치하면 됩니다. 로컬 압축 파일용 override는 제거합니다. 실제 공개된 버전을 기준으로 설치 안내를 바꾸고, [이전 안내](./migration.md)에 따라 dino-nest를 별도 전환합니다.
+계정에 2FA가 켜져 있으므로 `pnpm --filter @dino-ovum/theme publish`와 `pnpm --filter @dino-ovum/preset publish`는 브라우저 승인을 기다릴 수 있는 대화형 터미널에서 실행합니다.
+
+사용자 사이트는 preset의 registry 버전을 설치합니다. 로컬 압축 파일용 override는 제거합니다. dino-nest는 [이전 안내](./migration.md)에 따라 별도로 전환합니다.
