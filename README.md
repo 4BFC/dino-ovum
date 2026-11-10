@@ -38,7 +38,7 @@ The configuration and migration guides are maintained in Korean in `docs/`.
 
 ## Specifications
 
-Dino Ovum 0.1.0 contains two packages:
+Dino Ovum contains two packages:
 
 | Component | Package | Description |
 | --- | --- | --- |

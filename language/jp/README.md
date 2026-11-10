@@ -38,7 +38,7 @@ dino-nest のための共通 Docusaurus preset と theme です。
 
 ## 仕様
 
-Dino Ovum 0.1.0 は二つのパッケージで構成されています。
+Dino Ovum は二つのパッケージで構成されています。
 
 | 構成 | パッケージ | 説明 |
 | --- | --- | --- |
