@@ -1,0 +1,88 @@
+# Publishes both packages to npm when a release draft is published on GitHub.
+# The version on main goes up only after npm accepts the packages. A failure before
+# that returns the release to a draft and removes its tag so it can be published again.
+# npm authenticates this workflow through Trusted Publishing (OIDC); no npm token is stored.
+name: Publish
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+  id-token: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      RELEASE_TAG: ${{ github.event.release.tag_name }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.release.tag_name }}
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Read the release version
+        id: version
+        run: |
+          version=$(node .github/scripts/version.js check "$RELEASE_TAG")
+          echo "value=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Set the release version
+        env:
+          VERSION: ${{ steps.version.outputs.value }}
+        run: node .github/scripts/version.js set "$VERSION"
+
+      - run: pnpm check
+
+      - run: pnpm verify:packages
+
+      - run: pnpm pack:packages
+
+      - name: Publish to npm
+        id: publish
+        env:
+          VERSION: ${{ steps.version.outputs.value }}
+        run: |
+          echo "npm $(npm --version)"
+          for name in theme preset; do
+            package="@dino-ovum/$name"
+            published=$(npm view "$package@$VERSION" version 2>/dev/null || true)
+            if [ -n "$published" ]; then
+              echo "$package@$VERSION is already on npm. Skipping."
+              continue
+            fi
+            npm publish "artifacts/dino-ovum-$name-$VERSION.tgz" --access public
+          done
+
+      - name: Commit the release version
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add package.json packages/preset/package.json packages/theme/package.json \
+            website/package.json website/docusaurus.config.js
+          git commit -m "chore: release $RELEASE_TAG"
+          git push origin "HEAD:refs/heads/main"
+          git tag --force "$RELEASE_TAG"
+          git push --force origin "refs/tags/$RELEASE_TAG"
+
+      - name: Return the release to draft
+        if: failure() && steps.publish.outcome != 'success'
+        run: |
+          gh release edit "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --draft=true
+          git push origin ":refs/tags/$RELEASE_TAG"

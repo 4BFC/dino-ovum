@@ -13,7 +13,7 @@ import {
 } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import {packPackages, projectRoot} from './pack.js';
+import {currentVersion, packPackages, projectRoot} from './pack.js';
 
 const temporaryRoot = mkdtempSync(path.join(os.tmpdir(), 'dino-ovum-packages-'));
 const siteDir = path.join(temporaryRoot, 'site');
@@ -59,11 +59,7 @@ function fingerprint(filename) {
 try {
   for (const [name, archive] of Object.entries(archives)) {
     const files = execFileSync('tar', ['-tzf', archive], {encoding: 'utf8'}).split('\n');
-    for (const required of [
-      'package/package.json',
-      'package/LICENSE',
-      'package/README.md',
-    ])
+    for (const required of ['package/package.json', 'package/LICENSE', 'package/README.md'])
       assert.ok(files.includes(required));
     assert.ok(
       !files.some(
@@ -79,7 +75,7 @@ try {
       const manifest = JSON.parse(
         execFileSync('tar', ['-xOzf', archive, 'package/package.json'], {encoding: 'utf8'}),
       );
-      assert.equal(manifest.dependencies['@dino-ovum/theme'], '0.1.0');
+      assert.equal(manifest.dependencies['@dino-ovum/theme'], currentVersion());
     }
   }
   cpSync(path.join(projectRoot, 'website'), siteDir, {
@@ -160,11 +156,14 @@ try {
     recursive: true,
     filter: (source) => path.basename(source) !== 'node_modules',
   });
+  // The next patch of the current version stands in for a published update.
+  const [major, minor, patch] = currentVersion().split('.').map(Number);
+  const upgradeVersion = `${major}.${minor}.${patch + 1}`;
   for (const name of ['theme', 'preset']) {
     const filename = path.join(upgradeRoot, 'packages', name, 'package.json');
     const manifest = JSON.parse(readFileSync(filename, 'utf8'));
-    manifest.version = '0.1.1';
-    if (name === 'preset') manifest.dependencies['@dino-ovum/theme'] = '0.1.1';
+    manifest.version = upgradeVersion;
+    if (name === 'preset') manifest.dependencies['@dino-ovum/theme'] = upgradeVersion;
     writeJson(filename, manifest);
   }
   const heading = path.join(upgradeRoot, 'packages/theme/src/app/components/HomeHeading.jsx');

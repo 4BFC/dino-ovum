@@ -24,6 +24,9 @@ dino-ovum/
 ├── website/                    패키지 기반 검증 사이트
 ├── tests/                      공개 설정·콘텐츠 처리 검증
 ├── scripts/                    압축 패키지 생성·독립 설치 검증
+├── .github/
+│   ├── workflows/              Release 초안 갱신, npm 공개
+│   └── scripts/                workflow 전용: 초안 본문, 버전 확인·표기 변경
 ├── public/                     README의 Dino Ovum 로고
 ├── docs/                       한국어 설계·개발 문서
 ├── language/                   영어·한국어·일본어 README

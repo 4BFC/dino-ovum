@@ -14,9 +14,9 @@
     "serve": "pnpm --filter @dino-ovum/website serve",
     "test": "node --test tests/*.test.js",
     "lint": "eslint . && stylelint \"packages/theme/src/**/*.{css,scss}\" \"website/src/**/*.css\"",
-    "format": "prettier --write \"*.{js,json}\" \"packages/**/*.{js,jsx,json,css,scss}\" \"tests/**/*.js\" \"scripts/**/*.js\" \"website/*.{js,json}\"",
+    "format": "prettier --write \"*.{js,json}\" \"packages/**/*.{js,jsx,json,css,scss}\" \"tests/**/*.js\" \"scripts/**/*.js\" \".github/scripts/**/*.js\" \"website/*.{js,json}\"",
     "pack:packages": "node scripts/pack.js",
-    "verify:packages": "node scripts/verify-packages.js",
+    "verify:packages": "node scripts/verify.js",
     "check": "pnpm lint && pnpm test && pnpm build"
   },
   "devDependencies": {

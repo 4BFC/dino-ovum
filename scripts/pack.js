@@ -5,6 +5,17 @@ import {execFileSync} from 'node:child_process';
 
 export const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 
+// The two published packages always share one version.
+export function currentVersion(root = projectRoot) {
+  const [themeVersion, presetVersion] = ['theme', 'preset'].map(
+    (name) =>
+      JSON.parse(readFileSync(path.join(root, 'packages', name, 'package.json'), 'utf8')).version,
+  );
+  if (themeVersion !== presetVersion)
+    throw new Error(`Package versions differ: theme ${themeVersion}, preset ${presetVersion}`);
+  return themeVersion;
+}
+
 export function packPackages(
   sourceRoot = projectRoot,
   destination = path.join(projectRoot, 'artifacts'),
