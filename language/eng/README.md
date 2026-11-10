@@ -49,7 +49,13 @@ The packages target Docusaurus **3.10.1**, React **19**, and Node.js **>=24.22.1
 
 ## Install
 
-Run the development and verification site from this repository with Node.js and pnpm installed:
+Install the preset in your Docusaurus site. It brings in the matching `@dino-ovum/theme`.
+
+```sh
+pnpm add @dino-ovum/preset @docusaurus/core@3.10.1 @mdx-js/react react react-dom
+```
+
+To develop the packages, run the verification site from this repository with Node.js and pnpm installed:
 
 ```sh
 git clone https://github.com/4BFC/dino-ovum.git
@@ -61,13 +67,7 @@ pnpm start
 
 `nvm use` selects the version in `.nvmrc`; skip it if that Node.js version is already active.
 
-The packages are implemented, but have **not been published to npm**. Create local distribution archives with:
-
-```sh
-pnpm pack:packages
-```
-
-The two `.tgz` files are written to `artifacts/`. Follow the [development guide](../../docs/development.md) to install them in another site before the registry release.
+To try unpublished changes in another site, create local archives with `pnpm pack:packages` and follow the [development guide](../../docs/development.md).
 
 ## Usage
 

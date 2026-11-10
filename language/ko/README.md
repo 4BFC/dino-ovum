@@ -49,7 +49,13 @@ Dino Ovum 0.1.0은 두 패키지로 구성됩니다.
 
 ## 설치
 
-Node.js와 pnpm을 준비한 뒤 이 저장소의 개발·검증용 사이트를 실행합니다.
+Docusaurus 사이트에 preset을 설치합니다. 맞는 버전의 `@dino-ovum/theme`이 함께 설치됩니다.
+
+```sh
+pnpm add @dino-ovum/preset @docusaurus/core@3.10.1 @mdx-js/react react react-dom
+```
+
+패키지를 개발할 때는 Node.js와 pnpm을 준비한 뒤 이 저장소의 개발·검증용 사이트를 실행합니다.
 
 ```sh
 git clone https://github.com/4BFC/dino-ovum.git
@@ -61,13 +67,7 @@ pnpm start
 
 `nvm use`는 `.nvmrc`의 Node.js 버전을 선택합니다. 이미 해당 버전을 사용 중이면 생략합니다.
 
-패키지 구현은 완료했으며 **npm에는 아직 배포하지 않았습니다**. 배포 형태의 압축 파일은 다음 명령으로 만듭니다.
-
-```sh
-pnpm pack:packages
-```
-
-`artifacts/`에 두 `.tgz` 파일이 생성됩니다. npm 배포 전에 다른 사이트에 설치하는 방법은 [개발 안내](../../docs/development.md)를 참고하세요.
+배포하지 않은 변경을 다른 사이트에서 확인할 때는 `pnpm pack:packages`로 압축 파일을 만들고 [개발 안내](../../docs/development.md)를 따릅니다.
 
 ## 사용법
 

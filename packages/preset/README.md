@@ -2,6 +2,10 @@
 
 Docusaurus configuration and shared document, navigation, search, and PWA plugins for Dino Ovum.
 
+```sh
+pnpm add @dino-ovum/preset @docusaurus/core@3.10.1 @mdx-js/react react react-dom
+```
+
 ```js
 import {createDinoConfig} from '@dino-ovum/preset/config';
 
@@ -15,6 +19,6 @@ The preset includes the compatible `@dino-ovum/theme`. Use Docusaurus 3.10.1, Re
 
 Search is enabled by default. PWA and the `/updates` page are opt-in. Site settings override defaults; nested objects merge and arrays replace. Additional site plugins, themes, and presets are retained.
 
-Read the [configuration guide](https://github.com/4BFC/dino-ovum/blob/main/docs/configuration.md) for options, translation overrides, and migration. See the [repository README](https://github.com/4BFC/dino-ovum#install) for local archive installation while the initial release is being prepared.
+Read the [configuration guide](https://github.com/4BFC/dino-ovum/blob/main/docs/configuration.md) for options, translation overrides, and migration.
 
 MIT. Dependencies retain their own licenses.
