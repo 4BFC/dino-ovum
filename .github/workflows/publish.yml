@@ -67,7 +67,8 @@ jobs:
               echo "$package@$VERSION is already on npm. Skipping."
               continue
             fi
-            npm publish "artifacts/dino-ovum-$name-$VERSION.tgz" --access public
+            # "./" keeps npm from reading "artifacts/<file>" as a GitHub owner/repository.
+            npm publish "./artifacts/dino-ovum-$name-$VERSION.tgz" --access public
           done
 
       - name: Commit the release version
