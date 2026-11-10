@@ -105,12 +105,14 @@ See the [configuration guide](./docs/configuration.md), [architecture](./docs/ar
 
 ## Features
 
-- Shared document setup, automatic sidebars, and local search.
-- Document navigation and an optional recent-updates page.
-- Shared layouts, styles, Pretendard fonts, and light/dark themes.
-- English, Korean, and Japanese UI with site translation overrides.
-- Optional PWA manifests and offline support, including subpath deployments.
-- Custom CSS and component wrappers that survive package upgrades.
+| Feature | Description | Package | Setting (default) |
+| --- | --- | --- | --- |
+| Documents and search | Shared document setup, automatic sidebars, and local search | preset | `search` (on) |
+| Navigation and updates | Document navigation and a recent-updates page | preset, theme | `updates` (off) |
+| Design | Shared layouts, styles, Pretendard fonts, and light/dark themes | theme | always on |
+| Multilingual UI | English, Korean, and Japanese UI; the site can override messages | theme | `i18n` in the first argument |
+| PWA | Manifest and offline support, including subpath deployments | preset | `pwa` (off) |
+| Customization | Custom CSS and component wrappers survive package upgrades | preset, theme | `customCss`, `src/theme/` |
 
 ```sh
 pnpm build             # Build all three locales
