@@ -7,7 +7,7 @@ export default createDinoConfig(
     url: 'https://example.com',
     baseUrl: '/',
     favicon: 'img/icon.svg',
-    customFields: {version: '0.1.0'},
+    customFields: {version: '0.1.1'},
     themeConfig: {
       navbar: {
         logo: {
